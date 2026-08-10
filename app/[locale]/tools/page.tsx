@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { LocalizedFooter, LocalizedHeader } from "@/components/LocalizedShell";
+import { dict, isLocale, languageAlternates, localizedPath, locales, type Locale } from "@/lib/i18n";
+import { siteUrl } from "@/lib/site-data";
+import LocalizedToolbox from "./LocalizedToolbox";
+
+type Props = { params: Promise<{ locale: string }> };
+export function generateStaticParams() { return locales.map((locale) => ({ locale })); }
+export async function generateMetadata({ params }: Props): Promise<Metadata> { const { locale } = await params; if (!isLocale(locale)) return {}; const t = dict(locale); const path = "/tools"; return { title: { absolute: `${t.tools.title} | ${t.brand}` }, description: t.tools.lead, alternates: { canonical: `${siteUrl}${localizedPath(locale, path)}`, languages: languageAlternates(path) } }; }
+export default async function LocalizedToolsPage({ params }: Props) { const { locale: raw } = await params; if (!isLocale(raw)) notFound(); const locale: Locale = raw; const t = dict(locale); return <><LocalizedHeader locale={locale} path="/tools" /><main className="inner-main" lang={t.htmlLang}><section className="inner-hero tools-hero tools-hero-v3 localized-inner-hero"><div className="container"><div className="tools-hero-grid"><div><p className="eyebrow"><span /> {t.tools.eyebrow}</p><h1>{t.tools.title}</h1><p>{t.tools.lead}</p><div className="hero-index"><div><strong>3</strong><span>{t.tools.title}</span></div><div><strong>5</strong><span>{t.language}</span></div><div><strong>100%</strong><span>Browser-based</span></div></div></div><figure><img src="/illustration-tools-v7.webp" alt="" width="1280" height="720" loading="eager" decoding="async" /><figcaption><span>{t.tools.eyebrow}</span><strong>{t.tools.lead}</strong></figcaption></figure></div></div></section><section className="tools-section"><div className="container"><LocalizedToolbox locale={locale} /><section className="inner-cta"><div className="inner-cta-copy"><span>{t.consult}</span><h2>{t.section.ctaTitle}</h2><p>{t.section.ctaLead}</p></div><a className="button button-primary" href={`${localizedPath(locale)}#contact`}>{t.section.ctaButton} <span aria-hidden="true">↗</span></a></section></div></section></main><LocalizedFooter locale={locale} /></>; }

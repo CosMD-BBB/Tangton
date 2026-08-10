@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { HubFooter, HubHeader } from "@/components/HubHeader";
+import { Breadcrumbs } from "@/components/SeoBlocks";
+export const metadata: Metadata = { title: "นโยบายความเป็นส่วนตัว", robots: { index: false, follow: true } };
+export default function PrivacyPage() { return <><HubHeader /><main className="legal-page"><div className="narrow-container"><Breadcrumbs items={[{ label: "หน้าหลัก", href: "/" }, { label: "นโยบายความเป็นส่วนตัว" }]} /><h1>นโยบายความเป็นส่วนตัว</h1><p>หน้านี้เป็นข้อความตัวอย่างสำหรับเว็บไซต์สาธิต ก่อนนำไปใช้งานจริงควรปรับให้ตรงกับผู้ควบคุมข้อมูล ช่องทางติดต่อ ระบบที่ใช้ ระยะเวลาจัดเก็บ และสิทธิของเจ้าของข้อมูล</p><h2>ข้อมูลที่อาจเก็บ</h2><p>ชื่อ ช่องทางติดต่อ ข้อมูลธุรกิจ รายละเอียดที่ส่งผ่านแบบฟอร์ม และข้อมูลการใช้งานเว็บไซต์ที่จำเป็นต่อความปลอดภัยและการปรับปรุงบริการ</p><h2>วัตถุประสงค์</h2><p>ใช้เพื่อประเมินคำขอ ติดต่อกลับ จัดทำข้อเสนอ ดำเนินบริการตามที่ตกลง และปฏิบัติตามหน้าที่ที่เกี่ยวข้อง</p><h2>สิทธิของคุณ</h2><p>คุณอาจขอเข้าถึง แก้ไข ลบ คัดค้าน หรือถอนความยินยอมได้ตามเงื่อนไขของกฎหมายและฐานการประมวลผลที่ใช้</p></div></main><HubFooter /></>; }

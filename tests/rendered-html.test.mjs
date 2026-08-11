@@ -68,6 +68,10 @@ test("FAQ ต่างประเทศครบภาษาและช่อ�
   assert.match(localizedService, /side-service-label/);
   assert.match(form, /contact-icons\/telegram\.svg/);
   assert.match(form, /contact-icons\/whatsapp\.svg/);
+  const telegramLogo = await readFile(new URL("public/contact-icons/telegram.svg", root), "utf8");
+  const whatsappLogo = await readFile(new URL("public/contact-icons/whatsapp.svg", root), "utf8");
+  assert.match(telegramLogo, /fill="#fff"/);
+  assert.match(whatsappLogo, /fill="#fff"/);
   await Promise.all([
     access(new URL("public/contact-icons/telegram.svg", root)),
     access(new URL("public/contact-icons/whatsapp.svg", root)),

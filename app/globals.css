@@ -3023,7 +3023,7 @@ footer {
 .form-channel.wechat > span { background: #22b66b; font-size: 18px; }
 .form-channel.telegram > span { background: #229ed9; }
 .form-channel.whatsapp > span { background: #25d366; }
-.form-channel.telegram > span img, .form-channel.whatsapp > span img { display: block; filter: brightness(0) invert(1); }
+.form-channel.telegram > span img, .form-channel.whatsapp > span img { display: block; }
 .form-channel div { min-width: 0; display: grid; }
 .form-channel small { overflow: hidden; color: var(--text-muted); font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
 .form-channel strong { margin-top: 2px; font-size: 12px; }
@@ -3070,7 +3070,7 @@ footer {
 .footer-contact-links strong { color: #fff; font-size: 11px; }
 .footer-contact-links > a:hover { border-color: #06c755; background: rgba(6,199,85,.1); }
 .footer-contact-links .footer-brand-contact { grid-template-columns: 28px minmax(0,1fr); align-items: center; gap: 8px; }
-.footer-brand-contact > img { width: 28px; height: 28px; padding: 6px; border-radius: 9px; filter: brightness(0) invert(1); }
+.footer-brand-contact > img { width: 28px; height: 28px; padding: 6px; border-radius: 9px; }
 .footer-brand-contact.telegram > img { background: #229ed9; }
 .footer-brand-contact.whatsapp > img { background: #25d366; }
 .footer-brand-contact > span { display: grid; gap: 2px; min-width: 0; }

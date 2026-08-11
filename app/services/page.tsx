@@ -3,7 +3,7 @@ import Link from "next/link";
 import { HubFooter, HubHeader } from "@/components/HubHeader";
 import { Breadcrumbs, ConsultationCta, JsonLd } from "@/components/SeoBlocks";
 import { languageAlternates } from "@/lib/i18n";
-import { serviceIcon } from "@/lib/service-visuals";
+import { serviceIcon, serviceImage } from "@/lib/service-visuals";
 import { categoryInfo, serviceCategories, services, siteUrl } from "@/lib/site-data";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function ServicesPage() {
     <section className="directory-section"><div className="container">
       {serviceCategories.map((category, categoryIndex) => <section className="directory-group" id={category} key={category}>
         <div className="directory-heading"><span>0{categoryIndex + 1}</span><div><h2>{category}</h2><p>{categoryInfo[category].intro}</p></div></div>
-        <div className="directory-grid">{services.filter((service) => service.category === category).map((service) => <article className={`directory-card ${categoryInfo[category].accent}`} key={service.slug} data-reveal><div><span className="service-card-icon" aria-hidden="true">{serviceIcon(service.slug, service.category)}</span><span className="directory-type">{category}</span><h3>{service.title}</h3><p>{service.summary}</p></div><dl><div><dt>เริ่มต้น</dt><dd>{service.price}</dd></div><div><dt>ระยะเวลา</dt><dd>{service.time}</dd></div></dl><Link href={`/services/${service.slug}`}>ดูรายละเอียดบริการ <span aria-hidden="true">↗</span></Link></article>)}</div>
+        <div className="directory-grid">{services.filter((service) => service.category === category).map((service) => <article className={`directory-card ${categoryInfo[category].accent}`} key={service.slug} data-reveal><figure className="directory-card-visual"><img src={serviceImage(service.slug, service.category)} alt={`ภาพบริการ${service.title}`} width="1280" height="720" loading="lazy" decoding="async" /><span className="service-card-icon" aria-hidden="true">{serviceIcon(service.slug, service.category)}</span></figure><div><span className="directory-type">{category}</span><h3>{service.title}</h3><p>{service.summary}</p></div><dl><div><dt>เริ่มต้น</dt><dd>{service.price}</dd></div><div><dt>ระยะเวลา</dt><dd>{service.time}</dd></div></dl><Link href={`/services/${service.slug}`}>ดูรายละเอียดบริการ <span aria-hidden="true">↗</span></Link></article>)}</div>
       </section>)}
       <ConsultationCta />
     </div></section>

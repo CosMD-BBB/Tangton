@@ -174,10 +174,10 @@ export default function ConsultationForm({ locale = "th" }: { locale?: LanguageC
           <span aria-hidden="true">微</span><div><small>{wechatCopied ? t.copiedId : t.wechatAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">{wechatCopied ? "✓" : "＋"}</b>
         </button>
         <a className="form-channel telegram" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
-          <span aria-hidden="true">TG</span><div><small>{t.telegramAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">↗</b>
+          <span aria-hidden="true"><img src="/contact-icons/telegram.svg" alt="" width="22" height="22" /></span><div><small>{t.telegramAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">↗</b>
         </a>
         <a className="form-channel whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label={t.whatsappAction}>
-          <span aria-hidden="true">WA</span><div><small>{t.whatsappAction}</small><strong>WhatsApp</strong></div><b aria-hidden="true">↗</b>
+          <span aria-hidden="true"><img src="/contact-icons/whatsapp.svg" alt="" width="22" height="22" /></span><div><small>{t.whatsappAction}</small><strong>WhatsApp</strong></div><b aria-hidden="true">↗</b>
         </a>
       </div>
     </section>

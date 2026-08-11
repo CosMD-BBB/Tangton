@@ -2805,8 +2805,11 @@ footer {
 .side-card { overflow: hidden; padding: 23px; border: 1px solid var(--border-subtle); border-radius: 21px; background: #fff; box-shadow: 0 12px 34px rgba(65,51,34,.07); }
 .side-card > span { display: block; margin-bottom: 8px; color: var(--primary); font-size: 10px; font-weight: 850; text-transform: uppercase; letter-spacing: .08em; }.side-card > p { margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.7; }.side-card > a { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; color: var(--primary); font-size: 12px; font-weight: 800; }
 .side-card.service-price-side { color: #fff; background: linear-gradient(145deg, #202a24, #151b18); }.side-card.service-price-side span { color: #cbd89c; }.side-card.service-price-side strong { display: block; color: #fff; font: 800 24px/1.3 var(--font-headline); }.side-card.service-price-side small { display: block; margin-top: 7px; color: #bcc5bf; }.side-card.service-price-side a { margin-inline: -7px; padding: 12px 14px; border-radius: 12px; background: var(--primary); color: #fff; }
-.side-card.plain { display: grid; gap: 2px; padding: 14px; }.side-card.plain > strong { padding: 8px 9px 12px; font-size: 13px; }.side-card.plain > a { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; margin: 0; padding: 10px 9px; border-radius: 12px; color: var(--text-main); font-size: 12px; }.side-card.plain > a:hover { background: var(--primary-light); color: var(--primary); }.side-card.plain > a > span:first-child { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: #faf4e9; font-size: 17px; }
+.side-card.plain { display: grid; gap: 2px; padding: 14px; }.side-card.plain > strong { padding: 8px 9px 12px; font-size: 13px; }.side-card.plain > a { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 10px; align-items: center; margin: 0; padding: 10px 9px; border-radius: 12px; color: var(--text-main); font-size: 12px; }.side-card.plain > a:hover { background: var(--primary-light); color: var(--primary); }.side-card.plain > a > span:first-child { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; background: #faf4e9; font-size: 17px; }.side-card.plain .side-service-label { min-width: 0; line-height: 1.45; word-break: normal; overflow-wrap: break-word; }
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }.related-grid > a { min-height: 240px; display: flex; flex-direction: column; padding: 25px; border: 1px solid var(--border-subtle); border-radius: 21px; background: #fff; box-shadow: var(--shadow-md); }.related-grid > a > span { color: var(--primary); font-size: 10px; font-weight: 800; }.related-grid h3 { margin: 12px 0 8px; font-size: 21px; }.related-grid p { margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.65; }.related-grid b { margin-top: auto; color: var(--primary); font-size: 12px; }
+.faq-language-index { margin-top: 28px; }
+.faq-index-layout aside .faq-count-number { display: block; color: var(--primary); font: 800 44px/1 var(--font-mono); letter-spacing: -.05em; }
+.faq-index-layout aside .faq-count-number + strong { display: block; margin: 7px 0 22px; color: var(--text-muted); font-size: 11px; }
 
 .industry-directory-hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr); gap: 64px; align-items: center; }
 .industry-directory-hero-grid figure { overflow: hidden; margin: 0; border: 8px solid #fff; border-radius: 30px; background: #f7eddf; box-shadow: 0 26px 70px rgba(65,51,34,.14); }.industry-directory-hero-grid figure img { width: 100%; display: block; }.industry-directory-hero-grid figcaption { padding: 16px 20px; color: var(--text-muted); font-size: 12px; line-height: 1.55; }
@@ -3020,6 +3023,7 @@ footer {
 .form-channel.wechat > span { background: #22b66b; font-size: 18px; }
 .form-channel.telegram > span { background: #229ed9; }
 .form-channel.whatsapp > span { background: #25d366; }
+.form-channel.telegram > span img, .form-channel.whatsapp > span img { display: block; filter: brightness(0) invert(1); }
 .form-channel div { min-width: 0; display: grid; }
 .form-channel small { overflow: hidden; color: var(--text-muted); font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
 .form-channel strong { margin-top: 2px; font-size: 12px; }
@@ -3065,6 +3069,12 @@ footer {
 .footer-contact-links span { color: #9dad9f; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
 .footer-contact-links strong { color: #fff; font-size: 11px; }
 .footer-contact-links > a:hover { border-color: #06c755; background: rgba(6,199,85,.1); }
+.footer-contact-links .footer-brand-contact { grid-template-columns: 28px minmax(0,1fr); align-items: center; gap: 8px; }
+.footer-brand-contact > img { width: 28px; height: 28px; padding: 6px; border-radius: 9px; filter: brightness(0) invert(1); }
+.footer-brand-contact.telegram > img { background: #229ed9; }
+.footer-brand-contact.whatsapp > img { background: #25d366; }
+.footer-brand-contact > span { display: grid; gap: 2px; min-width: 0; }
+.footer-brand-contact small { color: #9dad9f; font-size: 8px; font-weight: 800; letter-spacing: .04em; }
 
 @media (max-width: 1040px) {
   .review-layout { gap: 40px; }

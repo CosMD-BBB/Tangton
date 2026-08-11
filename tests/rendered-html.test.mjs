@@ -56,6 +56,24 @@ test("รองรับ 5 ภาษาพร้อมเส้นทางบ�
   ]);
 });
 
+test("FAQ ต่างประเทศครบภาษาและช่องทางติดต่อใช้โลโก้จริง", async () => {
+  const faqData = await readFile(new URL("lib/localized-faqs.ts", root), "utf8");
+  const markers = [["en: [", "my: ["], ["my: [", "hi: ["], ["hi: [", "zh: ["], ["zh: [", "};"]];
+  for (const [start, end] of markers) {
+    const section = faqData.slice(faqData.indexOf(start), faqData.indexOf(end, faqData.indexOf(start) + start.length));
+    assert.equal([...section.matchAll(/^\s+\["/gm)].length, 20);
+  }
+  const localizedService = await readFile(new URL("app/[locale]/services/[slug]/page.tsx", root), "utf8");
+  const form = await readFile(new URL("components/ConsultationForm.tsx", root), "utf8");
+  assert.match(localizedService, /side-service-label/);
+  assert.match(form, /contact-icons\/telegram\.svg/);
+  assert.match(form, /contact-icons\/whatsapp\.svg/);
+  await Promise.all([
+    access(new URL("public/contact-icons/telegram.svg", root)),
+    access(new URL("public/contact-icons/whatsapp.svg", root)),
+  ]);
+});
+
 test("มีคู่มือ 14 ประเภทธุรกิจ เมนูรวม 40 บริการ และไอคอน", async () => {
   const industries = await readFile(new URL("lib/industry-data.ts", root), "utf8");
   const section = industries.slice(industries.indexOf("export const industries"), industries.indexOf("export const industryUi"));

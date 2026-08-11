@@ -2950,12 +2950,14 @@ footer {
 .reviewer small { display: block; margin-top: 3px; color: var(--text-muted); font-size: 9px; line-height: 1.45; }
 
 .lead-form-v4 {
+  position: relative;
   padding: 30px;
   border: 1px solid rgba(255,255,255,.72);
   border-radius: 30px;
   background: linear-gradient(160deg, #fff 0%, #f8f5ef 100%);
   box-shadow: 0 28px 80px rgba(0,0,0,.22);
 }
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 
 .form-head-v4 { margin-bottom: 20px; padding: 2px 2px 20px; }
 .form-head-v4 > span { width: 48px; height: 48px; flex: 0 0 48px; border-radius: 15px; background: linear-gradient(145deg, #fff1e7, #f9dfce); font-size: 20px; }
@@ -2973,6 +2975,8 @@ footer {
 .form-channel > span { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; color: #fff; font-size: 8px; font-weight: 900; }
 .form-channel.line > span { background: #06c755; }
 .form-channel.wechat > span { background: #22b66b; font-size: 18px; }
+.form-channel.telegram > span { background: #229ed9; }
+.form-channel.whatsapp > span { background: #25d366; }
 .form-channel div { min-width: 0; display: grid; }
 .form-channel small { overflow: hidden; color: var(--text-muted); font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
 .form-channel strong { margin-top: 2px; font-size: 12px; }
@@ -2996,6 +3000,7 @@ footer {
 .lead-form-v4 .form-detail textarea { min-height: 122px; line-height: 1.65; }
 .lead-form-v4 .form-consent { margin: 15px 2px 7px !important; padding: 12px; border-radius: 13px; background: #f3f0e9; }
 .lead-form-v4 .form-submit { min-height: 57px; margin-top: 10px; border-radius: 15px; box-shadow: 0 12px 26px rgba(217,119,69,.22); }
+.lead-form-v4 .form-submit:disabled { opacity: .68; cursor: wait; transform: none; box-shadow: none; }
 .form-data-note { display: grid; grid-template-columns: 28px 1fr; gap: 9px; align-items: start; margin-top: 12px; padding: 12px; border: 1px solid #eadfbf; border-radius: 13px; background: #fffbef; }
 .form-data-note > span { width: 26px; height: 26px; display: grid; place-items: center; border-radius: 9px; background: #e9c870; color: #58420d; font: 850 12px/1 var(--font-mono); }
 .form-data-note p { margin: 0; color: var(--text-muted); font-size: 9px; line-height: 1.55; }
@@ -3007,6 +3012,10 @@ footer {
 .form-prepared div div { display: flex; flex-wrap: wrap; gap: 7px; }
 .form-prepared a, .form-prepared button { min-height: 34px; display: inline-flex; align-items: center; padding: 7px 10px; border: 0; border-radius: 10px; background: #06c755; color: #fff; font-family: var(--font-body); font-size: 9px; font-weight: 800; cursor: pointer; }
 .form-prepared button { background: #dce9df; color: #275936; }
+.form-prepared.error { border-color: #e9c5b5; background: #fff4ef; }
+.form-prepared.error > span { background: #c45d38; }
+.form-prepared.error p { color: #7a4a39; }
+.form-prepared.error a { background: #06c755; }
 
 .footer-contact-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
 .footer-contact-links > a, .footer-contact-links > div { min-width: 116px; display: grid; gap: 2px; padding: 10px 12px; border: 1px solid rgba(255,255,255,.13); border-radius: 12px; background: rgba(255,255,255,.05); }

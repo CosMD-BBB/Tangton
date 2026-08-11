@@ -68,13 +68,21 @@ test("FAQ ต่างประเทศครบภาษาและช่อ�
   assert.match(localizedService, /side-service-label/);
   assert.match(form, /contact-icons\/telegram\.svg/);
   assert.match(form, /contact-icons\/whatsapp\.svg/);
+  assert.match(form, /contact-icons\/line\.svg/);
+  assert.match(form, /contact-icons\/wechat\.svg/);
   const telegramLogo = await readFile(new URL("public/contact-icons/telegram.svg", root), "utf8");
   const whatsappLogo = await readFile(new URL("public/contact-icons/whatsapp.svg", root), "utf8");
+  const lineLogo = await readFile(new URL("public/contact-icons/line.svg", root), "utf8");
+  const wechatLogo = await readFile(new URL("public/contact-icons/wechat.svg", root), "utf8");
   assert.match(telegramLogo, /fill="#fff"/);
   assert.match(whatsappLogo, /fill="#fff"/);
+  assert.match(lineLogo, /fill="#fff"/);
+  assert.match(wechatLogo, /fill="#fff"/);
   await Promise.all([
     access(new URL("public/contact-icons/telegram.svg", root)),
     access(new URL("public/contact-icons/whatsapp.svg", root)),
+    access(new URL("public/contact-icons/line.svg", root)),
+    access(new URL("public/contact-icons/wechat.svg", root)),
   ]);
 });
 

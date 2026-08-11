@@ -168,10 +168,10 @@ export default function ConsultationForm({ locale = "th" }: { locale?: LanguageC
       <div><strong>{t.direct}</strong><small>{t.directLead}</small></div>
       <div className="form-channel-grid">
         <a className="form-channel line" href={LINE_URL} target="_blank" rel="noreferrer">
-          <span aria-hidden="true">LINE</span><div><small>{t.lineAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">↗</b>
+          <span aria-hidden="true"><img src="/contact-icons/line.svg" alt="" width="22" height="22" /></span><div><small>{t.lineAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">↗</b>
         </a>
         <button className="form-channel wechat" type="button" onClick={copyWechat}>
-          <span aria-hidden="true">微</span><div><small>{wechatCopied ? t.copiedId : t.wechatAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">{wechatCopied ? "✓" : "＋"}</b>
+          <span aria-hidden="true"><img src="/contact-icons/wechat.svg" alt="" width="22" height="22" /></span><div><small>{wechatCopied ? t.copiedId : t.wechatAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">{wechatCopied ? "✓" : "＋"}</b>
         </button>
         <a className="form-channel telegram" href={TELEGRAM_URL} target="_blank" rel="noreferrer">
           <span aria-hidden="true"><img src="/contact-icons/telegram.svg" alt="" width="22" height="22" /></span><div><small>{t.telegramAction}</small><strong>{CONTACT_ID}</strong></div><b aria-hidden="true">↗</b>

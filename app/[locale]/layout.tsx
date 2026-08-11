@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { DocumentLanguage } from "@/components/DocumentLanguage";
 import { dict, isLocale, locales } from "@/lib/i18n";
 
 export function generateStaticParams() { return locales.map((locale) => ({ locale })); }
@@ -7,5 +8,5 @@ export default async function LocaleLayout({ children, params }: { children: Rea
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   const t = dict(locale);
-  return <div className={`localized-site locale-${locale}`} lang={t.htmlLang}>{children}</div>;
+  return <div className={`localized-site locale-${locale}`} lang={t.htmlLang}><DocumentLanguage lang={t.htmlLang} />{children}</div>;
 }

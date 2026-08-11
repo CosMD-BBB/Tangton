@@ -26,7 +26,33 @@ test("หน้าแรกแสดงเนื้อหา ราคา ขั
     assert.match(page, new RegExp(marker));
   }
   assert.match(page, /40 หน้าบริการ/);
-  assert.match(page, /8 งานบริหารที่เดิมยังขาด/);
+  assert.match(page, /8 งานบริหารสำคัญ/);
+});
+
+test("หน้าเผยแพร่ไม่แสดงข้อความภายในหรือข้อมูลสาธิต", async () => {
+  const sources = await Promise.all([
+    "app/page.tsx",
+    "app/[locale]/page.tsx",
+    "app/privacy/page.tsx",
+    "app/terms/page.tsx",
+    "components/HubHeader.tsx",
+    "lib/i18n.ts",
+    "lib/site-data.ts",
+  ].map((path) => readFile(new URL(path, root), "utf8")));
+  const publicSource = sources.join("\n");
+  for (const marker of [
+    "SEO • hreflang • localized content",
+    "เว็บไซต์ตัวอย่าง",
+    "เว็บไซต์สาธิต",
+    "demonstration website",
+    "နမူနာဝက်ဘ်ဆိုက်",
+    "प्रदर्शन वेबसाइट",
+    "演示网站",
+    "ตัวอย่างรูปแบบรีวิว",
+    "ตัวอย่างตำแหน่งรีวิว",
+    "ราคาแพ็กเกจตัวอย่าง",
+    "เดิมยังขาด",
+  ]) assert.doesNotMatch(publicSource, new RegExp(marker));
 });
 
 test("เครื่องมือทั้ง 5 รายการมีการคำนวณและจัดเก็บสถานะ", async () => {
@@ -140,6 +166,8 @@ test("ผลลัพธ์บิลด์มี worker และภาพแช
   await Promise.all([
     access(new URL("dist/server/index.js", root)),
     access(new URL("dist/client/og-v8.png", root)),
+    access(new URL("dist/client/illustration-consultation-v7.webp", root)),
+    access(new URL("dist/client/services/register-company.jpg", root)),
   ]);
 });
 

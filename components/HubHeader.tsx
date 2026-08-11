@@ -44,7 +44,7 @@ export function HubFooter() {
         <div><strong>แหล่งความรู้</strong><Link href="/business-guides">เริ่มตามประเภทธุรกิจ</Link><Link href="/guides">คู่มือธุรกิจ</Link><Link href="/tools">เครื่องมือฟรี</Link><Link href="/areas">บริการทุกจังหวัด</Link><Link href="/faq">คำถามที่พบบ่อย</Link></div>
         <div className="footer-cta"><strong>ไม่แน่ใจว่าควรเริ่มตรงไหน?</strong><p>เล่าเป้าหมายสั้น ๆ แล้วให้ผู้ดูแลช่วยจัดลำดับ</p><Link href="/#contact">ปรึกษาฟรี <span aria-hidden="true">↗</span></Link></div>
       </div>
-      <div className="container footer-bottom"><span>© 2569 ตั้งต้น — เว็บไซต์ตัวอย่างสำหรับการนำเสนอแนวทาง</span><div><Link href="/privacy">นโยบายความเป็นส่วนตัว</Link><Link href="/terms">เงื่อนไขบริการ</Link></div></div>
+      <div className="container footer-bottom"><span>© 2569 ตั้งต้น — สงวนลิขสิทธิ์</span><div><Link href="/privacy">นโยบายความเป็นส่วนตัว</Link><Link href="/terms">เงื่อนไขบริการ</Link></div></div>
     </footer>
   );
 }

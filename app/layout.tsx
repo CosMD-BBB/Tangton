@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { siteUrl } from "@/lib/site-data";
 import "./globals.css";
@@ -17,9 +18,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const requestHeaders = await headers();
+  const language = requestHeaders.get("x-tangton-language") ?? "th";
   return (
-    <html lang="th">
+    <html lang={language}>
       <body>{children}<ScrollReveal /></body>
     </html>
   );
